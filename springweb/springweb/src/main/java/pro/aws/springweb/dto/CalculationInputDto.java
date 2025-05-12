@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Component
 public class CalculationInputDto {
     private boolean isCritical;
 
@@ -25,7 +27,7 @@ public class CalculationInputDto {
 
 
     public boolean checkValid(){
-        return this.level >= 1 && this.level <= 100 ? this.attack > 1 ? this.defense > 1 ? this.power > 1 ? true : false : false : false : false;
+        return (this.level >= 1 && this.level <= 100 ? (this.attack > 1 ? (this.defense > 1 ? (this.power > 1 ? true : false) : false) : false) : false);
     }
 
     @Override

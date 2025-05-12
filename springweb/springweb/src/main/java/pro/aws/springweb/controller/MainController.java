@@ -16,15 +16,20 @@ public class MainController {
 
     private CalculationService calculationService;
 
-    @Autowired
-    public MainController(CalculationService calculationService){
-        this.calculationService = calculationService;
-        this.result = 0;
-    }
-
     private CalculationInputDto calcInput;
 
     private int result;
+    @Autowired
+    public MainController(CalculationService calculationService, CalculationInputDto calcInput){
+        System.out.println("Building MainController");
+        this.calculationService = calculationService;
+        this.calcInput = calcInput;
+        this.result = 0;
+    }
+
+
+
+
 
 
     @GetMapping("/")
